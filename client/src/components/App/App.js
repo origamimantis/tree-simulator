@@ -30,8 +30,8 @@ export default function App() {
   const loginInfo = useState(null);
   const [loggedIn, setLoginStatus] = loginInfo;
 
-  const searchInfo = useState("");
-  const [lastSearch, setLastSearch] = searchInfo;
+  const loginMsgState = useState("");
+  const [loginMsg, setLoginMsg] = loginMsgState;
   
   const stateInfo = useState({});
   const [states, setStates] = stateInfo;
@@ -39,7 +39,7 @@ export default function App() {
   const setState = (s,v) => {states[s] = v}
 
   states["login"] = loginInfo
-  states["search"] = searchInfo
+  states["loginMsg"] = loginMsgState
 
   // first time opening
   if (loggedIn === null)
@@ -61,7 +61,7 @@ export default function App() {
 	<Route path="/home" element={<Navigate replace to="/"/>} />
 	<Route path="/profile" element={<Profile getState={getState} setState={setState}/>} />
 	<Route path="/login" element={<Login getState={getState} setState={setState}/>} />
-	<Route path="/register" element={<Register/>} />
+	<Route path="/register" element={<Register getState={getState} setState={setState}/>} />
 	<Route path="/search" element={<Search getState={getState} setState={setState}/>} />
 	<Route path="/bad" element={<Other/>} />
 	<Route path="/user/:username" element={<User/>} />

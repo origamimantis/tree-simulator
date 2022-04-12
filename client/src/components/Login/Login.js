@@ -57,7 +57,8 @@ export default function Login({getState, setState})
 
   const [loggedIn, setLoginStatus] = getState("login");
 
-  const [err, setErr] = useState("");
+  //const [err, setErr] = useState("");
+  const [err, setErr] = getState("loginMsg");
 
   let nav = useNavigate()
   const goBack = ()=>
@@ -70,6 +71,10 @@ export default function Login({getState, setState})
   const handleSubmit = async (e) => 
     {
       e.preventDefault();
+
+      if (err.length > 0)
+	setErr("")
+
       const token = await loginUser({
 	username,
 	password

@@ -18,21 +18,16 @@ async function createUser(credentials)
   return await res.json();
 }
 
-export default function Register({getState, setState})
+export default function Register({getState, setState, state})
 {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
   const [err, setErr] = useState("");
+  const [loginerr, setLoginErr] = getState("loginMsg");
 
   let nav = useNavigate()
-  const goBack = ()=>
-  {
-    let returnPage = sessionStorage.getItem('returnPage')
-    if (returnPage === undefined)
-      returnPage = "/"
-    nav(returnPage)
-  }
+
   const handleSubmit = async (e) => 
     {
       e.preventDefault();
@@ -53,6 +48,7 @@ export default function Register({getState, setState})
 	if (result.result == "OK")
 	{
 	  nav("/login")
+	  setLoginErr("Registration successful")
 	}
 	else
 	{
