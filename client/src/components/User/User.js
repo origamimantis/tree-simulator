@@ -27,8 +27,7 @@ export default function User({getState,setState}) {
     let result = await res.json();
 
     setLoaded(true);
-    setUserData(result.result.username);
-    console.log(result.result.pwd);
+    setUserData(result.result);
   }
   if (loaded == false)
     getUserData(username)
@@ -47,7 +46,7 @@ export default function User({getState,setState}) {
       {
 	return (
 	  <>
-          <h3>{userData}'s page</h3>
+          <h3>{userData.username}'s page</h3>
 	  <p>After this is implemented, there will be a tree here.</p>
 	  <CanvasContainer/>
 	  </>

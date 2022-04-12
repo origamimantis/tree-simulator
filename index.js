@@ -111,7 +111,7 @@ app.post("/api/search", (req, res) => {
 
 app.post("/api/getuser", (req, res) => {
   let params = req.body
-  db.query(`SELECT * FROM userData WHERE username='${params.username}';`,
+  db.query(`SELECT username FROM userData WHERE username='${params.username}';`,
     (err,out)=>
     {
       if (err) throw err;
