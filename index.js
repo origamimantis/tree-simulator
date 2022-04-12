@@ -7,7 +7,7 @@ const { Client } = require('pg');
 let connectionString = process.env.DATABASE_URL;
 if (connectionString===undefined)
 {
-  console.log("Loading database key")
+  console.log("Apparently in dev mode, loading database key")
   const fs = require('fs');
   connectionString = fs.readFileSync("./dbkey",{ encoding: 'utf8' });
 }
