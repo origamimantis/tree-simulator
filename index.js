@@ -4,15 +4,26 @@ const cors = require('cors');
 const path = require('path');
 const { Client } = require('pg');
 
+let connectionString = process.env.DATABASE_URL;
+if (connectionString===undefined)
+{
+  const fs = require('fs');
+  connectionString = fs.readFileSync("./dbkey",{ encoding: 'utf8' });
+}
+
+
 const db = new Client(
   {
-    connectionString: process.env.DATABASE_URL,
-  ssl:
+    connectionString: connectionString,
+    ssl:
     {
       rejectUnauthorized: false
     }
   }
 );
+
+connectionString = null;
+
 db.connect().then(console.log("connected to db")).catch(e=>console.log("error connecting to db",e.stack))
 
 const app = express();

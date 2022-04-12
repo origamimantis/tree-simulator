@@ -1,5 +1,10 @@
+@font-face {
+font-family: "Computer Modern";
+src: url('./fonts/cmunrm.ttf') format('trueType');
+}
+
 .contents { margin-left: 2%}
-* {font-family: "Papyrus"}
+* {font-family: "Computer Modern"}
 
 .topbar-color { background-color: rgb(120,180,50) }
 html, body {overflow: auto; min-height:100%}
