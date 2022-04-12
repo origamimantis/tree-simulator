@@ -1,0 +1,9 @@
+.contents { margin-left: 2%}
+* {font-family: "Papyrus"}
+
+.topbar-color { background-color: rgb(120,180,50) }
+html, body {overflow: auto; min-height:100%}
+body {height: 100vh}
+
+.root .contents {height: 100vh}
+.topbarLinks {margin-top: "40px"}

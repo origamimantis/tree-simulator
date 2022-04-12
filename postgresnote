@@ -1,0 +1,5 @@
+to connect to db in shell
+	heroku pg:psql -a tree-simulator
+
+to view tables
+	\dt
