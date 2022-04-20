@@ -53,6 +53,7 @@ export default function App() {
 
   return (
 
+    <>
     <BrowserRouter>
       <Topbar getState={getState} setState={setState}/>
       <div className="contents">
@@ -70,5 +71,10 @@ export default function App() {
       </Routes>
       </div>
     </BrowserRouter>
+    <hr/>
+    <footer>
+    Shameless self-plug: This website is managed by <a href="https://origamimantis.github.io/">Eric Zhang</a>.
+    </footer>
+    </>
   )
 }
